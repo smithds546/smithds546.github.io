@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
+  
 }
 
 main {
@@ -13,6 +14,7 @@ main {
   min-height: 100vh;
   column-gap: 3rem;
   padding-block: min(20vh, 3rem);
+  
 }
 
 .bg {
@@ -109,37 +111,38 @@ main > div > a:hover {
   height: 28.125rem;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-start;
   align-items: self-start;
 }
 
 .swiper-slide h2 {
-  color: #fff;
+  color: #000000;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 1.4;
   margin-bottom: 0.625rem;
-  padding: 0 0 0 1.563rem;
+  padding: 1rem 0 0 0.963rem;
   text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .swiper-slide p {
-  color: #dadada;
+  color: #000000;
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  padding: 0 1.563rem;
+  font-weight: 400;
+  padding: 0 0.963rem;
   line-height: 1.6;
   font-size: 0.75rem;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .swiper-slide a {
-  margin: 1.25rem 1.563rem 3.438rem 1.563rem;
-  padding: 0.438em 1.875rem;
+  margin: 1.25rem 1.563rem 2.438rem 1.563rem;
+  padding: 0.438em 0.575rem;
   font-size: 0.9rem;
 }
 
@@ -159,24 +162,20 @@ main > div > a:hover {
 }
 
 .swiper-slide--one {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("BMI.png") no-repeat 50% 50%/cover;
+  background: url("BMI.png") no-repeat 50% 50%/cover;
 }
 
 .swiper-slide--two {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1515309025403-4b0184873cef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80") no-repeat 50% 50%/cover;
-}
+  background: url("arduino.png") no-repeat 50% 50%/cover;}
 
 .swiper-slide--three {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat 50% 50%/cover;
-}
+  background: url("dice.png") no-repeat 50% 50%/cover;}
 
 .swiper-slide--four {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat 50% 50%/cover;
-}
+  background: url("python_logo.png") no-repeat 50% 50%/cover;}
 
 .swiper-slide--five {
-  background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1570481662006-a3a1374699e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80") no-repeat 50% 50%/cover;
-}
+  background: url("Visual_paradigm_logo.png") no-repeat 50% 50%/cover;}
 
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right {
