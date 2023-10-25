@@ -1,0 +1,389 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+
+<meta name="robots" content="noindex, nofollow" /> 
+
+<title>BMI Task</title> 
+
+<style type="text/css"> 
+
+body { 
+
+font-family: Verdana, Arial, Helvetica, sans-serif; 
+
+background-color: bisque; 
+
+} 
+
+.center { 
+
+text-align: center; 
+
+} 
+
+body,td,th { 
+
+color: brown;  
+
+} 
+
+larger { 
+
+font-size: larger; 
+
+text-align: right; 
+
+} 
+
+table { 
+
+margin-left: auto; 
+
+margin-right: auto; 
+
+} 
+
+fixed { 
+
+font-family: Courier, monospace; 
+
+white-space: pre; 
+
+background-color: cornsilk; 
+
+} 
+
+.center { 
+
+text-align: center; 
+
+} 
+
+.menu-container { 
+
+    display: flex; 
+
+    justify-content: center; 
+
+    gap: 1rem; 
+
+} 
+
+.highlight { 
+
+    background-color: yellow; 
+
+} 
+
+ 
+
+</style> 
+
+</head> 
+
+<body> 
+
+<h3 class="center">COA123 - Web Programming</h3> 
+
+<h2 class="center">Individual Coursework - Olympic Cyclists</h2> 
+
+<h1 class="center">Task 4 - (compare.php)</h1> 
+
+<br> 
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="get" id="compare"> 
+
+    <table border="1"> 
+
+    <tr> 
+
+        <th scope="col">Key</th> 
+
+        <th scope="col">Value</th> 
+
+    </tr> 
+
+    <tr> 
+
+        <td><label for="country1">Country 1</label></td> 
+
+        <td><input name="country1" type="text" class="larger" id="country1" size="5" pattern="[A-Za-z]{3,3}" required /></td> 
+
+    </tr> 
+
+    <tr> 
+
+        <td><label for="country2">Country 2</label></td> 
+
+        <td><input name="country2" type="text" class="larger" id="country2" size="5" pattern="[A-Za-z]{3,3}" required /></td> 
+
+    </tr> 
+
+    <tr> 
+
+        <td><label for="submit">Submit</label></td> 
+
+        <td><input type="submit" id="submit" class="larger" /></td> 
+
+    </tr> 
+
+    </table> 
+
+</form> 
+
+<br> 
+
+<div class="menu-container"> 
+
+    <div class="center"> 
+
+        <select id="sortMenu"> 
+
+            <option value="Total">Total Medals</option> 
+
+            <option value="gold">Gold Medals</option> 
+
+            <option value="sliver">Silver Medals</option> 
+
+            <option value="bronze">Bronze Medals</option> 
+
+            <option value="NO.Cyclists">Number of Cyclists</option> 
+
+        </select> 
+
+    </div> 
+
+ 
+
+    <div class="center"> 
+
+        <button id="display">Display</button> 
+
+    </div> 
+
+</div> 
+
+ 
+
+<br> 
+<!--
+<?php 
+
+// Process form data when the form is submitted 
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') { 
+
+    if (isset($_GET['country1']) && isset($_GET['country2'])) { 
+
+        $country1 = $_GET['country1']; 
+
+        $country2 = $_GET['country2']; 
+
+ 
+
+        // Establish database connection (modify the parameters as needed) 
+
+        $servername = "sci‐mysql"; 
+
+        $username = "coa123cycle"; 
+
+        $password = "bgt87awx!@2FD"; 
+
+        $database = "coa123cdb"; 
+
+ 
+
+        $conn = new mysqli($servername, $username, $password, $database); 
+
+        if ($conn->connect_error) { 
+
+            die("Connection failed: " . $conn->connect_error); 
+
+        } 
+
+ 
+
+// Retrieve medal information and cyclists' names for Country 1 
+
+$allCountriesQuery = "SELECT iso_id, total AS Total, gold AS Gold, silver AS Silver, bronze AS Bronze FROM country GROUP BY iso_id"; 
+
+ 
+
+$allCountriesResult = $conn->query($allCountriesQuery); 
+
+ 
+
+// Store the selected countries in an array 
+
+$selectedCountries = [$country1, $country2]; 
+
+        // Close the database connection 
+
+        $conn->close(); 
+
+    // Display the comparison results 
+
+    echo '<table border= "1" class="center" id="resultsTable">'; 
+
+    echo '<tr>'; 
+
+    echo '<th>Country</th>'; 
+
+    echo '<th>Total Medals</th>'; 
+
+    echo '<th>Gold</th>'; 
+
+    echo '<th>Silver</th>'; 
+
+    echo '<th>Bronze</th>'; 
+
+    echo '<th>Cyclists</th>'; // Add new header for cyclists 
+
+    echo '</tr>'; 
+
+ 
+
+while ($row = $allCountriesResult->fetch_assoc()) { 
+
+    $countryCode = $row['iso_id']; 
+
+    $isHighlighted = in_array($countryCode, $selectedCountries) ? 'highlight' : ''; 
+
+    echo "<tr class='{$isHighlighted}' data-country='{$countryCode}'>"; 
+
+    echo "<td>{$countryCode}</td>"; 
+
+    echo "<td>{$row['Total']}</td>"; 
+
+    echo "<td>{$row['Gold']}</td>"; 
+
+    echo "<td>{$row['Silver']}</td>"; 
+
+    echo "<td>{$row['Bronze']}</td>"; 
+
+    echo '</tr>'; 
+
+} 
+
+    echo '</table>'; 
+
+} 
+
+} 
+
+ 
+
+?> 
+-->
+<br> 
+
+<br> 
+
+<div class="center"> 
+
+    <button id="resetBtn">Reset</button> 
+
+</div> 
+
+<script> 
+
+    // Get the "Reset" button element and the results table element 
+
+    const resetBtn = document.getElementById('resetBtn'); 
+
+    const resultsTable = document.getElementById('resultsTable'); 
+
+ 
+
+    // Add a click event listener to the "Reset" button 
+
+    resetBtn.addEventListener('click', () => { 
+
+        // Clear the table content except for the header row 
+
+        while (resultsTable.rows.length > 0) { 
+
+            resultsTable.deleteRow(0); 
+
+        } 
+
+    }); 
+
+</script> 
+
+ 
+
+    <script> 
+
+        const sortMenu = document.getElementById('sortMenu'); 
+
+ 
+
+        sortMenu.addEventListener('change', (event) => { 
+
+            const selectedValue = event.target.value; 
+
+            // Perform your sorting logic based on the selected value 
+
+        }); 
+
+    </script> 
+
+ 
+
+<script> 
+
+let displayToggle = false; 
+
+ 
+
+document.getElementById('display').addEventListener('click', function() { 
+
+    displayToggle = !displayToggle; 
+
+    var country1 = document.getElementById('country1').value; 
+
+    var country2 = document.getElementById('country2').value; 
+
+    var tableRows = document.querySelectorAll('[data-country]'); 
+
+ 
+
+    tableRows.forEach(function(row) { 
+
+        var countryCode = row.getAttribute('data-country'); 
+
+        if (displayToggle) { 
+
+            if (countryCode === country1 || countryCode === country2) { 
+
+                row.style.display = ''; // Show the row 
+
+            } else { 
+
+                row.style.display = 'none'; // Hide the row 
+
+            } 
+
+        } else { 
+
+            row.style.display = ''; // Show all rows 
+
+        } 
+
+    }); 
+
+}); 
+
+</script> 
+
+ 
+
+</body> 
+
+</html> 
