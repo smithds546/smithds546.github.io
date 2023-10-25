@@ -74,9 +74,9 @@ main a {
   display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
-  color: #717171;
+  color: #360da5;
   font-weight: 500;
-  background: #fff;
+  background: #ffffff;
   border-radius: 3.125rem;
   transition: 0.3s ease-in-out;
 }
@@ -99,7 +99,7 @@ main > div > a:hover {
 
 .swiper-pagination-bullet,
 .swiper-pagination-bullet-active {
-  background: #fff;
+  background: #360da5;
 }
 
 .swiper-pagination {
